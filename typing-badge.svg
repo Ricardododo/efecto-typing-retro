@@ -4,35 +4,40 @@
       <stop offset="0%" stop-color="#0a0f1e"/>
       <stop offset="100%" stop-color="#0c1222"/>
     </linearGradient>
-    <style>
-      text { font-family: 'Courier New', monospace; font-size: 14px; }
-      .cursor { animation: blink 1s step-end infinite; }
-      @keyframes blink { 50% { opacity: 0; } }
-      .char { opacity: 0; animation: appear 0.01s forwards; }
-      @keyframes appear { to { opacity: 1; } }
-    </style>
   </defs>
   <rect width="420" height="44" rx="8" fill="url(#bg)" stroke="rgba(200,190,37,0.3)" stroke-width="1"/>
-  <text x="12" y="28" fill="#7e8a9e">Finalizando DAM,</text>
-  <text x="148" y="28" fill="#c8be25">
-    <tspan class="char" style="animation-delay: 0s;">b</tspan>
-    <tspan class="char" style="animation-delay: 0.07s;">u</tspan>
-    <tspan class="char" style="animation-delay: 0.14s;">s</tspan>
-    <tspan class="char" style="animation-delay: 0.21s;">c</tspan>
-    <tspan class="char" style="animation-delay: 0.28s;">a</tspan>
-    <tspan class="char" style="animation-delay: 0.35s;">n</tspan>
-    <tspan class="char" style="animation-delay: 0.42s;">d</tspan>
-    <tspan class="char" style="animation-delay: 0.49s;">o</tspan>
-    <tspan class="char" style="animation-delay: 0.56s;"> </tspan>
-    <tspan class="char" style="animation-delay: 0.63s;">p</tspan>
-    <tspan class="char" style="animation-delay: 0.7s;">r</tspan>
-    <tspan class="char" style="animation-delay: 0.77s;">á</tspan>
-    <tspan class="char" style="animation-delay: 0.84s;">c</tspan>
-    <tspan class="char" style="animation-delay: 0.91s;">t</tspan>
-    <tspan class="char" style="animation-delay: 0.98s;">i</tspan>
-    <tspan class="char" style="animation-delay: 1.05s;">c</tspan>
-    <tspan class="char" style="animation-delay: 1.12s;">a</tspan>
-    <tspan class="char" style="animation-delay: 1.19s;">s</tspan>
-    <tspan class="cursor">|</tspan>
+  
+  <text x="12" y="28" font-family="'Courier New', monospace" font-size="14" fill="#7e8a9e">Finalizando DAM,</text>
+  
+  <text x="148" y="28" font-family="'Courier New', monospace" font-size="14" fill="#c8be25">
+    b<set attributeName="opacity" to="1" begin="0s"/>u<set attributeName="opacity" to="1" begin="0.07s"/>s<set attributeName="opacity" to="1" begin="0.14s"/>c<set attributeName="opacity" to="1" begin="0.21s"/>a<set attributeName="opacity" to="1" begin="0.28s"/>n<set attributeName="opacity" to="1" begin="0.35s"/>d<set attributeName="opacity" to="1" begin="0.42s"/>o<set attributeName="opacity" to="1" begin="0.49s"/> <set attributeName="opacity" to="1" begin="0.56s"/>p<set attributeName="opacity" to="1" begin="0.63s"/>r<set attributeName="opacity" to="1" begin="0.7s"/>á<set attributeName="opacity" to="1" begin="0.77s"/>c<set attributeName="opacity" to="1" begin="0.84s"/>t<set attributeName="opacity" to="1" begin="0.91s"/>i<set attributeName="opacity" to="1" begin="0.98s"/>c<set attributeName="opacity" to="1" begin="1.05s"/>a<set attributeName="opacity" to="1" begin="1.12s"/>s<set attributeName="opacity" to="1" begin="1.19s"/>
+  </text>
+  
+  <text x="148" y="28" font-family="'Courier New', monospace" font-size="14" fill="#c8be25" opacity="0">
+    Java, SQL, Android<set attributeName="opacity" to="1" begin="2s"/>
+  </text>
+  
+  <text x="148" y="28" font-family="'Courier New', monospace" font-size="14" fill="#c8be25" opacity="0">
+    Mejorando en WEB<set attributeName="opacity" to="1" begin="4s"/>
+  </text>
+  
+  <text x="148" y="28" font-family="'Courier New', monospace" font-size="14" fill="#c8be25" opacity="0">
+    Python en progreso<set attributeName="opacity" to="1" begin="6s"/>
+  </text>
+  
+  <text x="148" y="28" font-family="'Courier New', monospace" font-size="14" fill="#c8be25" opacity="0">
+    Quiero crecer<set attributeName="opacity" to="1" begin="8s"/>
+  </text>
+  
+  <text x="148" y="28" font-family="'Courier New', monospace" font-size="14" fill="#c8be25" opacity="0">
+    Adaptable<set attributeName="opacity" to="1" begin="10s"/>
+  </text>
+  
+  <text x="148" y="28" font-family="'Courier New', monospace" font-size="14" fill="#c8be25" opacity="0">
+    Disponible prácticas<set attributeName="opacity" to="1" begin="12s"/>
+  </text>
+  
+  <text x="390" y="28" font-family="'Courier New', monospace" font-size="14" fill="#c8be25">
+    |<animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
   </text>
 </svg>
