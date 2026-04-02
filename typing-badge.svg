@@ -1,60 +1,38 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="420" height="44" viewBox="0 0 420 44" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="44" viewBox="0 0 420 44">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" stop-color="#0a0f1e"/>
       <stop offset="100%" stop-color="#0c1222"/>
     </linearGradient>
+    <style>
+      text { font-family: 'Courier New', monospace; font-size: 14px; }
+      .cursor { animation: blink 1s step-end infinite; }
+      @keyframes blink { 50% { opacity: 0; } }
+      .char { opacity: 0; animation: appear 0.01s forwards; }
+      @keyframes appear { to { opacity: 1; } }
+    </style>
   </defs>
   <rect width="420" height="44" rx="8" fill="url(#bg)" stroke="rgba(200,190,37,0.3)" stroke-width="1"/>
-  <text id="fixed" x="12" y="28" font-family="'Courier New', monospace" font-size="14" fill="#7e8a9e">Finalizando DAM,</text>
-  <text id="typing" x="148" y="28" font-family="'Courier New', monospace" font-size="14" fill="#c8be25"></text>
-  <rect id="cursor" x="148" y="14" width="8" height="20" fill="#c8be25">
-    <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
-  </rect>
-  <script type="text/javascript">
-    <![CDATA[
-      (function() {
-        var phrases = ["buscando prácticas", "Java, SQL, Android", "Mejorando en WEB", "Python en progreso", "Quiero crecer en equipo real", "Adaptable y con ganas de aprender", "Disponible para prácticas"];
-        var textEl = document.getElementById('typing');
-        var cursorEl = document.getElementById('cursor');
-        var phraseIdx = 0;
-        var charIdx = 0;
-        var isDeleting = false;
-        var currentText = '';
-        
-        function typeEffect() {
-          var fullPhrase = phrases[phraseIdx];
-          
-          if (!isDeleting) {
-            currentText = fullPhrase.substring(0, charIdx + 1);
-            charIdx++;
-            
-            if (charIdx === fullPhrase.length) {
-              isDeleting = true;
-              setTimeout(typeEffect, 1800);
-              return;
-            }
-          } else {
-            currentText = fullPhrase.substring(0, charIdx - 1);
-            charIdx--;
-            
-            if (charIdx === 0) {
-              isDeleting = false;
-              phraseIdx = (phraseIdx + 1) % phrases.length;
-              setTimeout(typeEffect, 70);
-              return;
-            }
-          }
-          
-          textEl.textContent = currentText;
-          cursorEl.setAttribute('x', 148 + textEl.getComputedTextLength());
-          
-          var delay = isDeleting ? 35 : 70;
-          setTimeout(typeEffect, delay);
-        }
-        
-        setTimeout(typeEffect, 300);
-      })();
-    ]]>
-  </script>
+  <text x="12" y="28" fill="#7e8a9e">Finalizando DAM,</text>
+  <text x="148" y="28" fill="#c8be25">
+    <tspan class="char" style="animation-delay: 0s;">b</tspan>
+    <tspan class="char" style="animation-delay: 0.07s;">u</tspan>
+    <tspan class="char" style="animation-delay: 0.14s;">s</tspan>
+    <tspan class="char" style="animation-delay: 0.21s;">c</tspan>
+    <tspan class="char" style="animation-delay: 0.28s;">a</tspan>
+    <tspan class="char" style="animation-delay: 0.35s;">n</tspan>
+    <tspan class="char" style="animation-delay: 0.42s;">d</tspan>
+    <tspan class="char" style="animation-delay: 0.49s;">o</tspan>
+    <tspan class="char" style="animation-delay: 0.56s;"> </tspan>
+    <tspan class="char" style="animation-delay: 0.63s;">p</tspan>
+    <tspan class="char" style="animation-delay: 0.7s;">r</tspan>
+    <tspan class="char" style="animation-delay: 0.77s;">á</tspan>
+    <tspan class="char" style="animation-delay: 0.84s;">c</tspan>
+    <tspan class="char" style="animation-delay: 0.91s;">t</tspan>
+    <tspan class="char" style="animation-delay: 0.98s;">i</tspan>
+    <tspan class="char" style="animation-delay: 1.05s;">c</tspan>
+    <tspan class="char" style="animation-delay: 1.12s;">a</tspan>
+    <tspan class="char" style="animation-delay: 1.19s;">s</tspan>
+    <tspan class="cursor">|</tspan>
+  </text>
 </svg>
