@@ -1,18 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="400" height="40" viewBox="0 0 400 40">
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="36" viewBox="0 0 320 36">
   <defs>
-    <style>
-      @keyframes blink { 50% { opacity: 0; } }
-      .c { animation: blink 1s step-end infinite; }
-    </style>
-    <linearGradient id="g" x1="0%" y1="0%" x2="0%" y2="100%">
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" stop-color="#0a0f1e"/>
       <stop offset="100%" stop-color="#0c1222"/>
     </linearGradient>
   </defs>
-  <rect width="400" height="40" rx="6" fill="url(#g)"/>
-  <text x="15" y="25" font-family="'Courier New', monospace" font-size="13">
-    <tspan fill="#7e8a9e">Finalizando DAM, </tspan>
-    <tspan fill="#c8be25">buscando prácticas</tspan>
-    <tspan class="c" fill="#c8be25">|</tspan>
-  </text>
+  <rect width="320" height="36" rx="6" fill="url(#bg)"/>
+  <style>
+    .t { font-family: monospace; font-size: 12px; }
+    @keyframes fade1 { 0%, 12% { opacity: 1; } 16%, 100% { opacity: 0; } }
+    @keyframes fade2 { 0%, 12% { opacity: 0; } 16%, 28% { opacity: 1; } 32%, 100% { opacity: 0; } }
+    @keyframes fade3 { 0%, 32% { opacity: 0; } 36%, 48% { opacity: 1; } 52%, 100% { opacity: 0; } }
+    @keyframes fade4 { 0%, 52% { opacity: 0; } 56%, 68% { opacity: 1; } 72%, 100% { opacity: 0; } }
+    @keyframes fade5 { 0%, 72% { opacity: 0; } 76%, 88% { opacity: 1; } 92%, 100% { opacity: 0; } }
+    @keyframes fade6 { 0%, 92% { opacity: 0; } 96%, 100% { opacity: 1; } }
+  </style>
+  <text x="12" y="23" class="t" fill="#7e8a9e">Finalizando DAM, </text>
+  <text x="12" y="23" class="t" fill="#c8be25" style="animation: fade1 7s infinite">buscando prácticas</text>
+  <text x="12" y="23" class="t" fill="#c8be25" style="animation: fade2 7s infinite">Java, SQL, Android</text>
+  <text x="12" y="23" class="t" fill="#c8be25" style="animation: fade3 7s infinite">Mejorando en WEB</text>
+  <text x="12" y="23" class="t" fill="#c8be25" style="animation: fade4 7s infinite">Python en progreso</text>
+  <text x="12" y="23" class="t" fill="#c8be25" style="animation: fade5 7s infinite">Buscando prácticas</text>
+  <text x="12" y="23" class="t" fill="#c8be25" style="animation: fade6 7s infinite">Disponible</text>
 </svg>
