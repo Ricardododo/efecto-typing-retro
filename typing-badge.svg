@@ -1,48 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="420" height="44" viewBox="0 0 420 44">
+<svg xmlns="http://www.w3.org/2000/svg" width="380" height="44" viewBox="0 0 380 44">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" stop-color="#0a0f1e"/>
       <stop offset="100%" stop-color="#0c1222"/>
     </linearGradient>
-    <style>
-      @keyframes blink { 50% { opacity: 0; } }
-      .c { animation: blink 1s step-end infinite; }
-    </style>
   </defs>
-  <rect width="420" height="44" rx="8" fill="url(#bg)" stroke="rgba(200,190,37,0.3)" stroke-width="1"/>
-  
-  <g font-family="'Courier New', monospace" font-size="14">
-    <text x="12" y="28" fill="#7e8a9e">Finalizando DAM,</text>
-    
-    <text x="165" y="28" fill="#c8be25">
-      <tspan>buscando prácticas</tspan>
-      <animate attributeName="opacity" values="1;1;0;0" dur="12s" begin="0s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.12;0.14;1"/>
-    </text>
-    <text x="165" y="28" fill="#c8be25" opacity="0">
-      <tspan>Java, SQL, Android</tspan>
-      <animate attributeName="opacity" values="0;0;1;1;0;0" dur="12s" begin="0s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.12;0.14;0.26;0.28;1"/>
-    </text>
-    <text x="165" y="28" fill="#c8be25" opacity="0">
-      <tspan>Mejorando en WEB</tspan>
-      <animate attributeName="opacity" values="0;0;1;1;0;0" dur="12s" begin="0s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.26;0.28;0.40;0.42;1"/>
-    </text>
-    <text x="165" y="28" fill="#c8be25" opacity="0">
-      <tspan>Python en progreso</tspan>
-      <animate attributeName="opacity" values="0;0;1;1;0;0" dur="12s" begin="0s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.40;0.42;0.54;0.56;1"/>
-    </text>
-    <text x="165" y="28" fill="#c8be25" opacity="0">
-      <tspan>Quiero crecer</tspan>
-      <animate attributeName="opacity" values="0;0;1;1;0;0" dur="12s" begin="0s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.54;0.56;0.68;0.70;1"/>
-    </text>
-    <text x="165" y="28" fill="#c8be25" opacity="0">
-      <tspan>Aprendiendo siempre</tspan>
-      <animate attributeName="opacity" values="0;0;1;1;0;0" dur="12s" begin="0s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.68;0.70;0.82;0.84;1"/>
-    </text>
-    <text x="165" y="28" fill="#c8be25" opacity="0">
-      <tspan>Disponible prácticas</tspan>
-      <animate attributeName="opacity" values="0;0;1;1" dur="12s" begin="0s" repeatCount="indefinite" calcMode="discrete" keyTimes="0;0.82;0.84;1"/>
-    </text>
-    
-    <text x="388" y="28" fill="#c8be25" class="c">|</text>
-  </g>
+  <rect width="380" height="44" rx="8" fill="url(#bg)" stroke="rgba(200,190,37,0.3)" stroke-width="1"/>
+  <style>
+    @keyframes blink { 50% { opacity: 0; } }
+    .c { animation: blink 1s step-end infinite; }
+  </style>
+  <text x="12" y="28" font-family="'Courier New', monospace" font-size="14">
+    <tspan fill="#7e8a9e">Finalizando DAM,</tspan>
+    <tspan fill="#c8be25" class="c">buscando prácticas</tspan>
+  </text>
 </svg>
