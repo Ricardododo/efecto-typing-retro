@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Efecto Typing Retro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(145deg, #0a0f1e 0%, #0c1222 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Courier New', 'SF Mono', 'Fira Code', 'Times New Roman', monospace;
+            padding: 20px;
+        }
+
+        /* Contenedor estilo CRT retro */
+        .typing-container {
+            background: #0a0c15;
+            border-radius: 24px;
+            padding: 2rem 2.5rem;
+            box-shadow: 
+                0 20px 35px -10px rgba(0,0,0,0.5),
+                inset 0 1px 0 rgba(255,255,255,0.05),
+                0 0 0 1px rgba(255,215,0,0.2);
+            border: 1px solid rgba(200,190,37,0.3);
+            backdrop-filter: blur(2px);
+        }
+
+        /* Línea de texto con cursor */
+        .typing-line {
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.2rem;
+        }
+
+        .fixed-text {
+            color: #7e8a9e;
+            font-size: 1.5rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-shadow: 0 0 3px rgba(200,190,37,0.3);
+        }
+
+        .dynamic-text {
+            color: #c8be25;
+            font-size: 1.5rem;
+            font-weight: bold;
+            position: relative;
+            display: inline-block;
+            min-width: 260px;
+            text-shadow: 0 0 5px #c8be25, 0 0 2px #ffec80;
+            letter-spacing: 1px;
+        }
+
+        /* Cursor parpadeante estilo retro */
+        .cursor {
+            display: inline-block;
+            width: 12px;
+            height: 1.7rem;
+            background-color: #c8be25;
+            margin-left: 6px;
+            vertical-align: middle;
+            box-shadow: 0 0 6px #ffdd44;
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Efecto de scanline */
+        .typing-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0,0,0,0.08) 0px,
+                rgba(0,0,0,0.08) 2px,
+                transparent 2px,
+                transparent 6px
+            );
+            pointer-events: none;
+            border-radius: 24px;
+        }
+
+        /* Responsive */
+        @media (max-width: 700px) {
+            .typing-container { padding: 1.2rem 1.5rem; }
+            .fixed-text, .dynamic-text { font-size: 1rem; }
+            .cursor { height: 1.2rem; width: 8px; }
+            .dynamic-text { min-width: 200px; }
+        }
+    </style>
+</head>
+<body>
+<div class="typing-container" style="position: relative;">
+    <div class="typing-line">
+        <span class="fixed-text"></span>
+        <span class="dynamic-text" id="typing-text"></span>
+        <span class="cursor"></span>
+    </div>
+</div>
+
+<script>
+    (function() {
+        // ========== CONFIGURACIÓN ==========
+        // Lista de frases que se irán escribiendo (efecto máquina de escribir)
+        const phrases = [
+            "Finalizando DAM, buscando prácticas",
+            "Java, SQL, Android, Spring Boot",
+            "Mejorando en WEB",
+            "Python en progreso",
+            "Quiero crecer en equipo real",
+            "Adaptable y con ganas de aprender",
+            "Disponible para prácticas"
+        ];
+
+        // Velocidad de escritura (ms por letra)
+        const typeSpeed = 70;
+        // Pausa entre frases (ms)
+        const pauseBetween = 1800;
+        // Velocidad de borrado (ms por letra)
+        const eraseSpeed = 35;
+
+        // Elemento DOM donde se mostrará el texto
+        const textElement = document.getElementById('typing-text');
+        let phraseIndex = 0;        // Índice de la frase actual
+        let charIndex = 0;           // Índice de letra actual
+        let isDeleting = false;      // ¿Estamos borrando?
+        let currentText = '';        // Texto actual mostrado
+
+        // Función principal que maneja el tipeo y borrado
+        function typeEffect() {
+            const fullPhrase = phrases[phraseIndex];
+            
+            if (!isDeleting) {
+                // Modo escritura: agregar siguiente caracter
+                currentText = fullPhrase.substring(0, charIndex + 1);
+                charIndex++;
+                
+                // Si completamos la frase
+                if (charIndex === fullPhrase.length) {
+                    isDeleting = true;
+                    setTimeout(typeEffect, pauseBetween);
+                    return;
+                }
+            } else {
+                // Modo borrado: eliminar último caracter
+                currentText = fullPhrase.substring(0, charIndex - 1);
+                charIndex--;
+                
+                // Si borramos toda la frase, pasamos a la siguiente
+                if (charIndex === 0) {
+                    isDeleting = false;
+                    phraseIndex = (phraseIndex + 1) % phrases.length;
+                    setTimeout(typeEffect, typeSpeed);
+                    return;
+                }
+            }
+            
+            // Actualizar el texto en el DOM
+            textElement.textContent = currentText;
+            
+            // Velocidad diferente según estemos escribiendo o borrando
+            const delay = isDeleting ? eraseSpeed : typeSpeed;
+            setTimeout(typeEffect, delay);
+        }
+        
+        // Iniciar el efecto después de un pequeño delay
+        setTimeout(() => {
+            typeEffect();
+        }, 300);
+        
+        // (Opcional) Ajustar el ancho mínimo dinámicamente según la frase más larga
+        function adjustMinWidth() {
+            const maxLength = Math.max(...phrases.map(p => p.length));
+            const approxWidth = maxLength * 0.9; // en rem aprox, solo estético
+            if (textElement) {
+                textElement.style.minWidth = `${maxLength * 0.65}ch`;
+            }
+        }
+        adjustMinWidth();
+    })();
+</script>
+</body>
+</html>
