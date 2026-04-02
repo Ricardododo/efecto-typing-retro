@@ -1,25 +1,73 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="320" height="36" viewBox="0 0 320 36">
+<svg xmlns="http://www.w3.org/2000/svg" width="380" height="44" viewBox="0 0 380 44" id="typing-svg">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
       <stop offset="0%" stop-color="#0a0f1e"/>
       <stop offset="100%" stop-color="#0c1222"/>
     </linearGradient>
   </defs>
-  <rect width="320" height="36" rx="6" fill="url(#bg)"/>
-  <style>
-    .t { font-family: monospace; font-size: 12px; }
-    @keyframes fade1 { 0%, 12% { opacity: 1; } 16%, 100% { opacity: 0; } }
-    @keyframes fade2 { 0%, 12% { opacity: 0; } 16%, 28% { opacity: 1; } 32%, 100% { opacity: 0; } }
-    @keyframes fade3 { 0%, 32% { opacity: 0; } 36%, 48% { opacity: 1; } 52%, 100% { opacity: 0; } }
-    @keyframes fade4 { 0%, 52% { opacity: 0; } 56%, 68% { opacity: 1; } 72%, 100% { opacity: 0; } }
-    @keyframes fade5 { 0%, 72% { opacity: 0; } 76%, 88% { opacity: 1; } 92%, 100% { opacity: 0; } }
-    @keyframes fade6 { 0%, 92% { opacity: 0; } 96%, 100% { opacity: 1; } }
-  </style>
-  <text x="12" y="23" class="t" fill="#7e8a9e">Finalizando DAM, </text>
-  <text x="12" y="23" class="t" fill="#c8be25" style="animation: fade1 7s infinite">buscando prácticas</text>
-  <text x="12" y="23" class="t" fill="#c8be25" style="animation: fade2 7s infinite">Java, SQL, Android</text>
-  <text x="12" y="23" class="t" fill="#c8be25" style="animation: fade3 7s infinite">Mejorando en WEB</text>
-  <text x="12" y="23" class="t" fill="#c8be25" style="animation: fade4 7s infinite">Python en progreso</text>
-  <text x="12" y="23" class="t" fill="#c8be25" style="animation: fade5 7s infinite">Buscando prácticas</text>
-  <text x="12" y="23" class="t" fill="#c8be25" style="animation: fade6 7s infinite">Disponible</text>
+  <rect width="380" height="44" rx="6" fill="url(#bg)" stroke="rgba(200,190,37,0.3)" stroke-width="1"/>
+  <text id="text" x="12" y="28" font-family="'Courier New', monospace" font-size="14" fill="#c8be25"></text>
+  <rect id="cursor" x="0" y="0" width="2" height="20" fill="#c8be25">
+    <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+  </rect>
+  <script type="text/javascript">
+    <![CDATA[
+      (function() {
+        var phrases = [
+          "Finalizando DAM, buscando prácticas",
+          "Java, SQL, Android, Spring Boot",
+          "Mejorando en WEB",
+          "Python en progreso",
+          "Quiero crecer en equipo real",
+          "Adaptable y con ganas de aprender",
+          "Disponible para prácticas"
+        ];
+        var typeSpeed = 70;
+        var pauseBetween = 1800;
+        var eraseSpeed = 35;
+        var textEl = document.getElementById('text');
+        var cursorEl = document.getElementById('cursor');
+        var phraseIndex = 0;
+        var charIndex = 0;
+        var isDeleting = false;
+        var currentText = '';
+        
+        function typeEffect() {
+          var fullPhrase = phrases[phraseIndex];
+          
+          if (!isDeleting) {
+            currentText = fullPhrase.substring(0, charIndex + 1);
+            charIndex++;
+            
+            if (charIndex === fullPhrase.length) {
+              isDeleting = true;
+              setTimeout(typeEffect, pauseBetween);
+              return;
+            }
+          } else {
+            currentText = fullPhrase.substring(0, charIndex - 1);
+            charIndex--;
+            
+            if (charIndex === 0) {
+              isDeleting = false;
+              phraseIndex = (phraseIndex + 1) % phrases.length;
+              setTimeout(typeEffect, typeSpeed);
+              return;
+            }
+          }
+          
+          textEl.textContent = currentText;
+          
+          var metrics = textEl.getComputedTextLength();
+          cursorEl.setAttribute('x', 12 + metrics);
+          cursorEl.setAttribute('y', 14);
+          
+          var delay = isDeleting ? eraseSpeed : typeSpeed;
+          setTimeout(typeEffect, delay);
+        }
+        
+        setTimeout(typeEffect, 300);
+      })();
+    ]]>
+  </script>
 </svg>
