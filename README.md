@@ -28,4 +28,4 @@ const phrases = [
 
 ## Demo
 
-Ver online: https://ricardododo.github.io/efecto-typing-retro/typing_retro.html
+Ver online: https://ricardododo.github.io/efecto-typing-retro/index.html
