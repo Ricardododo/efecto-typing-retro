@@ -1,4 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="300" height="36" viewBox="0 0 300 36">
-  <rect width="300" height="36" rx="5" fill="#0a0f1e"/>
-  <text x="10" y="23" font-family="monospace" font-size="12" fill="#c8be25">Finalizando DAM, buscando prácticas<animate attributeName="opacity" values="1;0;1" dur="0.7s" repeatCount="indefinite"/></text>
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="40" viewBox="0 0 400 40">
+  <defs>
+    <style>
+      @keyframes blink { 50% { opacity: 0; } }
+      .c { animation: blink 1s step-end infinite; }
+    </style>
+    <linearGradient id="g" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1e"/>
+      <stop offset="100%" stop-color="#0c1222"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="40" rx="6" fill="url(#g)"/>
+  <text x="15" y="25" font-family="'Courier New', monospace" font-size="13">
+    <tspan fill="#7e8a9e">Finalizando DAM, </tspan>
+    <tspan fill="#c8be25">buscando prácticas</tspan>
+    <tspan class="c" fill="#c8be25">|</tspan>
+  </text>
 </svg>
